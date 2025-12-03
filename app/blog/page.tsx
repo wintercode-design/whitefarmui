@@ -28,8 +28,12 @@ export default function Page() {
     return (
       <div>
         {/* Page title */}
-        <PageTitle />
-        <BlogPage />
+        <PageTitle
+          img="/blog/blog.jpeg"
+          title="Blog"
+          subs="Stay up to date with our activities"
+        />
+        <BlogPage blogs={blogs.data} />
       </div>
     );
 }

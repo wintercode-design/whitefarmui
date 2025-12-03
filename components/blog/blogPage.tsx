@@ -1,8 +1,16 @@
+"use client";
+import { useAppContext } from "@/providers/appContext";
+import { Blog } from "@/types/types";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-export default function BlogPage() {
+type Props = {
+  blogs: Blog[];
+};
+
+export default function BlogPage({ blogs }: Props) {
+  const { baseURL } = useAppContext();
   return (
     <section className="flex flex-col gap-8">
       <div className="flex flex-col max-w-7xl mx-auto gap-8 p-8">
@@ -22,26 +30,30 @@ export default function BlogPage() {
             </span>
           </div>
         </header>
-        <div className="grid grid-cols-3 gap-10">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((prod) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {blogs.map((blog) => {
             return (
-              <div className="flex flex-col" key={prod}>
+              <div
+                className="flex flex-col hover:bg-[#0F6935]/20 hover:p-4 duration-500 gap-4"
+                key={blog.id}
+              >
                 <img
-                  src="/food1.jpeg"
+                  src={
+                    blog.cover.url
+                      ? `${baseURL}${blog.cover.url}`
+                      : "/food1.jpeg"
+                  }
                   alt=""
                   className="w-full h-[250px] object-cover"
                 />
                 <div className="flex flex-col gap-2">
-                  <h4 className="font-bold uppercase">Champignons frais</h4>
-                  <p>
-                    Les champignons frais sont issus de la récolte immédiate au
-                    Site
-                  </p>
+                  <h4 className="font-bold uppercase">{blog.title}</h4>
+                  <p className="line-clamp-4">{blog.summary}</p>
                   <Link
-                    href={"/"}
+                    href={`/blog/${blog.id}`}
                     className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
                   >
-                    Commande <ArrowRight />
+                    Voir Plus <ArrowRight />
                   </Link>
                 </div>
               </div>

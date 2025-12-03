@@ -4,12 +4,11 @@ import Story from "@/components/about/story";
 import Team from "@/components/about/team";
 import PageTitle from "@/components/global/pageTitle";
 import Blog from "@/components/home/blog";
-import { HeroSkeleton, Skeleton } from "@/components/skeleton";
+import { HeroSkeleton } from "@/components/skeleton";
 import { useAppContext } from "@/providers/appContext";
 import HistoryQuery from "@/queries/history";
 import TeamQuery from "@/queries/team";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 
 export default function Page() {
   const { baseURL } = useAppContext();
@@ -37,13 +36,17 @@ export default function Page() {
     return (
       <div>
         {/* Page title */}
-        <PageTitle />
+        <PageTitle
+          img="/about/about.jpeg"
+          title="Gic Ubuntu"
+          subs="Champignons frais ou séchés, qualité garantie "
+        />
         {/* Story */}
         <Story />
         {/* History time line*/}
         <History history={history.data} />
         {/* Team */}
-        <Team />
+        <Team members={teams.data} />
         {/* Blogs */}
         <Blog />
       </div>

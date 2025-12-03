@@ -28,7 +28,11 @@ export default function Page() {
     return (
       <div>
         {/* Page title */}
-        <PageTitle />
+        <PageTitle
+          img="/job/job.jpeg"
+          title="Offre d’emploi"
+          subs="Nos offre d'emploit sessonier ici"
+        />
         <JobPage />
       </div>
     );

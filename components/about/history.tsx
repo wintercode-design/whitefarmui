@@ -1,3 +1,5 @@
+"use client";
+import { useAppContext } from "@/providers/appContext";
 import { History as HistoryT } from "@/types/types";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import React from "react";
@@ -6,9 +8,7 @@ type TeamProps = {
   history: HistoryT[];
 };
 
-export default function History(Props: TeamProps) {
-  const { history } = Props;
-
+export default function History({ history }: TeamProps) {
   return (
     <section className="flex flex-col gap-8">
       <div className="flex flex-col max-w-7xl mx-auto gap-8 p-8">
@@ -27,9 +27,9 @@ export default function History(Props: TeamProps) {
           </div>
         </header>
         <div className="flex flex-col gap-10">
-          {[1, 2, 3, 4].map((prod) => {
-            const even = prod % 2 == 0;
-            return <HistoryNode step={prod} swap={even} />;
+          {history.map((node, item) => {
+            const even = item % 2 == 0;
+            return <HistoryNode step={item} swap={even} history={node} />;
           })}
         </div>
       </div>
@@ -37,54 +37,68 @@ export default function History(Props: TeamProps) {
   );
 }
 
-function HistoryNode(data: { swap: boolean; step: number }) {
+function HistoryNode(data: { swap: boolean; step: number; history: HistoryT }) {
+  const { baseURL } = useAppContext();
+  const { history } = data;
+
+  const date = new Date(history.date);
+  const [month, day, year] = [
+    date.getMonth(),
+    date.getDate(),
+    date.getFullYear(),
+  ];
   return (
-    <div className="flex gap-4 items-center">
+    <div
+      className={`flex ${
+        data.swap ? "flex-col" : "flex-col-reverse"
+      } lg:flex-row lg:gap-4 items-center`}
+    >
       {data.swap ? (
         <>
-          <div className="flex flex-col w-full items-end italic">
-            <h3>01 - 05 - 2024</h3>
-            <h5>JANUARY</h5>
+          <div className="flex flex-col w-full lg:items-end italic">
+            <h3>
+              {month} - {day} - {year}
+            </h3>
+            <h5 className="uppercase">
+              {new Date(history.date).toLocaleString("fr-FR", {
+                month: "long",
+              })}
+            </h5>
           </div>
           <div>{data.step}</div>
           <div className="flex flex-col gap-4 w-full">
-            <div className="flex gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <img
-                src="/food1.jpeg"
+                src={
+                  history.cover.url
+                    ? `${baseURL}${history.cover.url}`
+                    : "/food1.jpeg"
+                }
                 alt=""
                 className="w-full h-[150px] object-cover"
               />
 
               <div className="flex flex-col">
-                <h4 className="font-bold uppercase">Demanou Jeam Roger</h4>
+                <h4 className="font-bold uppercase">{history.title}</h4>
                 <p className="flex gap-4 h-fit w-fit p-1 text-[#0F6935]">
-                  RESPONSABLE MAIMA
+                  {history.story}
                 </p>
-                <p>
-                  Les champignons frais sont issus de la récolte immédiate au us
-                  de la au sus de la Site issus de la récolte immédiate au Site
-                </p>
+                <p>{history.story}</p>
               </div>
             </div>
-            <p>
-              Les champignons frais sont issus de la récolte immédiate au
-              SiteLes champignons frais sont issus de la au sus de la récolte i
-              SiteLes champignons frais sont récolte immédiate au Smpignon issus
-              de la récolte immédiate au iteLes cha SiteLes champignons frais
-              sont issus de la récolte immédiate au Site
-            </p>
+            <p>{history.subtitle}</p>
           </div>
         </>
       ) : (
         <>
           <div className="flex flex-col gap-4 w-full">
-            <div className="flex gap-4">
-              <div className="flex flex-col items-end">
+            <div className="flex flex-col-reverse lg:flex-row gap-4">
+              <div className="flex flex-col lg:items-end">
                 <h4 className="font-bold uppercase">Demanou Jeam Roger</h4>
                 <p className="flex gap-4 h-fit w-fit p-1 text-[#0F6935]">
                   RESPONSABLE MAIMA
                 </p>
-                <p className="text-right">
+                <p className="lg:text-right">
                   Les champignons frais sont issus de la récolte immédiate au us
                   de la au sus de la Site issus de la récolte immédiate au Site
                 </p>
@@ -95,7 +109,7 @@ function HistoryNode(data: { swap: boolean; step: number }) {
                 className="w-full h-[150px] object-cover"
               />
             </div>
-            <p className="text-right">
+            <p className="lg:text-right">
               Les champignons frais sont issus de la récolte immédiate au
               SiteLes champignons frais sont issus de la au sus de la récolte i
               SiteLes champignons frais sont récolte immédiate au Smpignon issus
@@ -105,8 +119,14 @@ function HistoryNode(data: { swap: boolean; step: number }) {
           </div>
           <div>{data.step}</div>
           <div className="flex flex-col w-full italic">
-            <h3>01 - 05 - 2024</h3>
-            <h5>JANUARY</h5>
+            <h3>
+              {month} - {day} - {year}
+            </h3>
+            <h5 className="uppercase">
+              {new Date(history.date).toLocaleString("fr-FR", {
+                month: "long",
+              })}
+            </h5>
           </div>
         </>
       )}

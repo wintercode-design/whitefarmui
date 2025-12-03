@@ -4,8 +4,8 @@ import React from "react";
 export default function Hero() {
   return (
     <section className="flex flex-col min-h-[50vh] bg-no-repeat bg-cover bg-[linear-gradient(rgba(82,82,82,0.2),rgba(82,82,82,0.8)),url('/hero.jpeg')]">
-      <div className="flex">
-        <div className="flex flex-col gap-2 border-r border-white justify-end p-8 text-white w-[185px]">
+      <div className="flex flex-col-reverse md:flex-row">
+        <div className="flex flex-col gap-2 border-r border-white justify-end p-8 text-white w-full md:w-[185px]">
           <AtSign />
           <div className="flex flex-col">
             <p>Contacter Nous</p>
@@ -20,8 +20,8 @@ export default function Hero() {
           <h3>Champignons frais ou séchés, qualité garantie </h3>
         </div>
       </div>
-      <div className="flex border-t border-white items-start">
-        <div className="flex flex-col gap-2 border-r border-white justify-start p-8 text-white w-[185px] min-h-[200px]">
+      <div className="flex flex-col-reverse md:flex-row border-t border-white items-start">
+        <div className="flex flex-col gap-2 border-r border-white justify-start p-8 text-white w-full md:w-[185px] min-h-[200px]">
           <MapPin />
           <div className="flex flex-col">
             <p>Menoua</p>

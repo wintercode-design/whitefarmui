@@ -5,7 +5,7 @@ import React from "react";
 export default function FooterBar() {
   return (
     <footer className="w-full flex flex-col items-center bg-[#0a0a0a] text-white">
-      <section className="grid grid-cols-5 max-w-7xl gap-12 px-4 py-12 mx-auto w-full">
+      <section className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 max-w-7xl gap-12 px-4 py-12 mx-auto w-full">
         <div className="flex flex-col gap-2">
           <h4>Liens Utils</h4>
           <nav>
@@ -43,9 +43,8 @@ export default function FooterBar() {
           <AtSign />
           <div className="flex flex-col">
             <p>Contacter Nous</p>
-            <span className="flex gap-1">
-              <p>+237696636639</p>/<p>679683512</p>
-            </span>
+            <p>+237696636639</p>
+            <p>679683512</p>
             <strong>Cameroon</strong>
           </div>
         </div>

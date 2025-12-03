@@ -28,8 +28,12 @@ export default function Page() {
     return (
       <div>
         {/* Page title */}
-        <PageTitle />
-        <ShopPage />
+        <PageTitle
+          img="/boutique/boutique.jpeg"
+          title="Boutique"
+          subs="passer vos commande"
+        />
+        <ShopPage products={products.data} />
       </div>
     );
 }

@@ -67,6 +67,29 @@ export type Client = {
     created_at: Date;
     updated_at: Date;
   }[];
+  logo: {
+    id: number;
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: {
+      small: Medium;
+      medium: Medium;
+      thumbnail: Medium;
+    };
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: null;
+    provider: string;
+    provider_metadata: null;
+    created_at: Date;
+    updated_at: Date;
+  };
 };
 
 export interface Medium {
@@ -275,3 +298,35 @@ export interface Small {
   width: number;
   height: number;
 }
+
+export type Info = {
+  id: number;
+  title: string;
+  content: string;
+  published_at: Date;
+  created_at: Date;
+  updated_at: Date;
+  cover: {
+    id: number;
+    name: string;
+    alternativeText: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: {
+      small: Medium;
+      medium: Medium;
+      thumbnail: Medium;
+    };
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    previewUrl: null;
+    provider: string;
+    provider_metadata: null;
+    created_at: Date;
+    updated_at: Date;
+  };
+};
