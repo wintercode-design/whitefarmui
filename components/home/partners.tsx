@@ -29,7 +29,7 @@ export default function Client() {
         <div className="flex flex-col max-w-7xl w-full mx-auto my-4 gap-12 p-8 ">
           <header className="flex justify-between items-end text-white">
             <div className="flex flex-col gap-2 justify-start max-w-xl">
-              <h4 className="border-b w-[150px]">cos collaborateur</h4>
+              <h4 className="border-b w-[150px]">Nos collaborateur</h4>
               <h2 className=" uppercase font-bold">NOS PARTENAIR</h2>
             </div>
             <div className="flex gap-2">

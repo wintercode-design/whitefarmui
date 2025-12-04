@@ -33,7 +33,7 @@ export default function Page() {
           title="Offre d’emploi"
           subs="Nos offre d'emploit sessonier ici"
         />
-        <JobPage />
+        <JobPage jobs={jobs.data} />
       </div>
     );
 }

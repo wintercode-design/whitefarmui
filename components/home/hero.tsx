@@ -1,4 +1,5 @@
 import { ArrowRight, AtSign, MapPin, Play } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 export default function Hero() {
@@ -30,12 +31,18 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex gap-2 flex-1 p-8 justify-start items-start min-h-[200px]">
-          <button className="flex gap-2 h-fit py-2 px-8 text-white bg-[#0F6935]">
+          <Link
+            href={"/shop"}
+            className="flex gap-2 h-fit py-2 px-8 text-white bg-[#0F6935] hover:bg-[#0F6935]/50 duration-300"
+          >
             Commande <ArrowRight />
-          </button>
-          <button className="h-fit p-1 border-2 border-white">
+          </Link>
+          <Link
+            href={"/about"}
+            className="h-fit p-1.5 border-2 border-white hover:bg-[#0F6935]/50 duration-300"
+          >
             <Play color="white" />
-          </button>
+          </Link>
         </div>
       </div>
     </section>

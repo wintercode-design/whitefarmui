@@ -28,14 +28,14 @@ export default function NavBar() {
       }`}
     >
       <div className="flex justify-between max-w-7xl mx-auto w-full items-center">
-        <div className="flex items-center w-[100px] gap-2">
+        <Link href={"/"} className="flex items-center w-[100px] gap-2">
           <img
             src="/logo.png"
             alt="logo"
             className="bg-gray-400 rounded-full w-16 h-16"
           />
           <h4 className="font-bold leading-[120%]">GIC UBUNTU</h4>
-        </div>
+        </Link>
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-4">
