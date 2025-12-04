@@ -1,5 +1,5 @@
 // lib/axios.ts
-import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
+import axios, { AxiosInstance } from "axios";
 
 // export const dynamic = "force-dynamic";
 export default class AxiosConfig {

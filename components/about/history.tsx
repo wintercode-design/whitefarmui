@@ -29,7 +29,14 @@ export default function History({ history }: TeamProps) {
         <div className="flex flex-col gap-10">
           {history.map((node, item) => {
             const even = item % 2 == 0;
-            return <HistoryNode step={item} swap={even} history={node} />;
+            return (
+              <HistoryNode
+                step={item}
+                swap={even}
+                history={node}
+                key={node.id}
+              />
+            );
           })}
         </div>
       </div>
