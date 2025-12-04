@@ -9,7 +9,7 @@ import React from "react";
 
 export default function Page() {
   const { baseURL } = useAppContext();
-  const jobQuery = new JobQuery(baseURL);
+  const jobQuery = new JobQuery();
   const jobs = useQuery({
     queryKey: ["getJobs"],
     queryFn: () => jobQuery.getAll(),

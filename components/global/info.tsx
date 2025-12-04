@@ -6,7 +6,7 @@ import { HeroSkeleton } from "../skeleton";
 
 const Info = () => {
   const { baseURL } = useAppContext();
-  const infoQuery = new InfoQuery(baseURL);
+  const infoQuery = new InfoQuery();
   const infos = useQuery({
     queryKey: ["getInfos"],
     queryFn: () => infoQuery.getAll(),

@@ -16,7 +16,7 @@ type Props = {
 
 export default function BlogDetailPage({ id }: Props) {
   const { baseURL } = useAppContext();
-  const blogQuery = new BlogQuery(baseURL);
+  const blogQuery = new BlogQuery();
   const blog = useQuery({
     queryKey: ["getBlog"],
     queryFn: () => blogQuery.getOne(id),

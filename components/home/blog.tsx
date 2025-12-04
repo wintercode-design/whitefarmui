@@ -12,7 +12,7 @@ export default function Blog() {
   const [selected, setSelected] = useState(0);
 
   const { baseURL } = useAppContext();
-  const blogQuery = new BlogQuery(baseURL);
+  const blogQuery = new BlogQuery();
   const blogs = useQuery({
     queryKey: ["getBlogs"],
     queryFn: async () => blogQuery.getAll(),

@@ -9,7 +9,7 @@ import { HeroSkeleton } from "../skeleton";
 
 export default function Product() {
   const { baseURL } = useAppContext();
-  const productQuery = new ProductQuery(baseURL);
+  const productQuery = new ProductQuery();
   const products = useQuery({
     queryKey: ["getProducts"],
     queryFn: () => productQuery.getAll(),

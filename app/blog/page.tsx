@@ -9,7 +9,7 @@ import React from "react";
 
 export default function Page() {
   const { baseURL } = useAppContext();
-  const blogQuery = new BlogQuery(baseURL);
+  const blogQuery = new BlogQuery();
   const blogs = useQuery({
     queryKey: ["getBlogs"],
     queryFn: () => blogQuery.getAll(),

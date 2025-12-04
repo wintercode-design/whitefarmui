@@ -9,7 +9,7 @@ import { HeroSkeleton } from "../skeleton";
 export default function Client() {
   const [selected, setSelected] = useState(0);
   const { baseURL } = useAppContext();
-  const clientQuery = new ClientQuery(baseURL);
+  const clientQuery = new ClientQuery();
   const clients = useQuery({
     queryKey: ["getClients"],
     queryFn: () => clientQuery.getAll(),

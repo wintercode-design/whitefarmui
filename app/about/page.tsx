@@ -12,8 +12,8 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function Page() {
   const { baseURL } = useAppContext();
-  const teamQuery = new TeamQuery(baseURL);
-  const historyQuery = new HistoryQuery(baseURL);
+  const teamQuery = new TeamQuery();
+  const historyQuery = new HistoryQuery();
   const teams = useQuery({
     queryKey: ["getTeams"],
     queryFn: () => teamQuery.getAll(),
