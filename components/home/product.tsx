@@ -49,7 +49,7 @@ export default function Product() {
               return (
                 <div
                   key={prod.id}
-                  className="flex flex-col hover:bg-[#0F6935]/20 hover:p-4 duration-500 gap-4"
+                  className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-500 gap-4"
                 >
                   <img
                     src={

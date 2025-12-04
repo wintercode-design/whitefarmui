@@ -45,9 +45,12 @@ export default function Blog() {
           </header>
           <div className="gap-8 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:col-span-2 lg:col-span-3">
-              {blogs.data.slice(0, 3).map((blog) => {
+              {blogs.data.slice(0, 3).map((blog, i) => {
                 return (
-                  <div className="flex flex-col" key={blog.id}>
+                  <div
+                    className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-300"
+                    key={blog.id}
+                  >
                     <img
                       src={
                         blog.cover.url
@@ -58,7 +61,12 @@ export default function Blog() {
                       className="w-full h-[250px] object-cover"
                     />
                     <div className="flex flex-col gap-2">
-                      <h4 className="font-bold uppercase">{blog.title}</h4>
+                      <h4
+                        className="font-bold uppercase hover:text-[#0F6935] cursor-pointer"
+                        onClick={() => setSelected(i)}
+                      >
+                        {blog.title}
+                      </h4>
                       <p className="line-clamp-3">{blog.summary}</p>
                       <Link
                         href={`/blog/${blog.id}`}
@@ -90,10 +98,20 @@ export default function Blog() {
                   {blogs.data.at(selected)?.summary}
                 </p>
                 <div className="flex gap-2">
-                  <span className="border p-2 h-fit">
+                  <span
+                    className="border p-2 h-fit cursor-pointer hover:bg-[#0F6935]/20"
+                    onClick={() =>
+                      setSelected((selected + 1) % blogs.data.length)
+                    }
+                  >
                     <ArrowLeft />
                   </span>
-                  <span className="border p-2 h-fit">
+                  <span
+                    className="border p-2 h-fit cursor-pointer hover:bg-[#0F6935]/20"
+                    onClick={() =>
+                      setSelected(Math.abs((selected + 1) % blogs.data.length))
+                    }
+                  >
                     <ArrowRight />
                   </span>
                 </div>

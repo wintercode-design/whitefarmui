@@ -34,10 +34,20 @@ export default function Client() {
               <h2 className=" uppercase font-bold">NOS CLIENT SATISFAIT</h2>
             </div>
             <div className="flex gap-2">
-              <span className="border p-2 h-fit">
+              <span
+                className="border p-2 h-fit cursor-pointer hover:bg-[#0F6935]/20"
+                onClick={() =>
+                  setSelected((selected + 1) % clients.data.length)
+                }
+              >
                 <ArrowLeft />
               </span>
-              <span className="border p-2 h-fit">
+              <span
+                className="border p-2 h-fit cursor-pointer hover:bg-[#0F6935]/20"
+                onClick={() =>
+                  setSelected(Math.abs((selected + 1) % clients.data.length))
+                }
+              >
                 <ArrowRight />
               </span>
             </div>
@@ -67,9 +77,12 @@ export default function Client() {
               <p>{clients.data.at(selected)?.comment}</p>
             </div>
             <div className="flex flex-col gap-4">
-              {clients.data.map((client) => {
+              {clients.data.map((client, i) => {
                 return (
-                  <div className="flex gap-2" key={client.id}>
+                  <div
+                    className="flex gap-2 hover:bg-[#0F6935]/20 hover:p-2 duration-300"
+                    key={client.id}
+                  >
                     <img
                       src={
                         client.cover[0].url
@@ -80,7 +93,12 @@ export default function Client() {
                       className="w-full max-w-[150px]  h-[120px] object-cover"
                     />
                     <div className="flex flex-col gap-1">
-                      <h4 className="font-bold uppercase">{client.name}</h4>
+                      <h4
+                        className="font-bold uppercase cursor-pointer hover:text-[#0F6935]"
+                        onClick={() => setSelected(i)}
+                      >
+                        {client.name}
+                      </h4>
                       <p className="flex gap-8 h-fit w-fit text-[#0F6935]">
                         {client.position}
                       </p>
