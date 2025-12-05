@@ -2,7 +2,7 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Product } from "@/types/types";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useAppContext } from "@/providers/appContext";
 
 type Props = {
@@ -10,6 +10,8 @@ type Props = {
 };
 
 export default function ShopPage({ products }: Props) {
+  const [kg, setKg] = useState<number>(1);
+  const [current, setcurrent] = useState<number>(-1);
   const { baseURL } = useAppContext();
   return (
     <section className="flex flex-col gap-8">
@@ -35,7 +37,8 @@ export default function ShopPage({ products }: Props) {
             return (
               <div
                 key={prod.id}
-                className="flex flex-col hover:bg-[#0F6935]/20 hover:p-4 duration-500 gap-4"
+                className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-500 gap-4"
+                onClick={() => setcurrent(prod.id)}
               >
                 <img
                   src={
@@ -54,15 +57,25 @@ export default function ShopPage({ products }: Props) {
                       {prod.price}XAF/Kg
                     </span>
                     <span className="flex w-full gap-8 h-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]">
-                      <p>Kg</p>12
+                      <p>Kg</p>
+                      <input
+                        type="number"
+                        value={prod.id === current ? kg : 1}
+                        onChange={(e) => setKg(Number(e.target.value))}
+                        className="focus:outline-neutral-200 w-20"
+                      />
                     </span>
                   </div>
-                  <Link
-                    href={`/shop/${prod.id}`}
+                  <a
+                    href={`https://wa.me/237696636639?text=Bonjour, je suis intéressé par, ${encodeURIComponent(
+                      prod.name
+                    )}, Je voudrais ${prod.id === current ? kg : 1} Kg`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="flex justify-between gap-2 h-fit py-2 px-8 text-white bg-[#0F6935]"
                   >
-                    Commande <ArrowRight />
-                  </Link>
+                    Commander <ArrowRight />
+                  </a>
                 </div>
               </div>
             );
