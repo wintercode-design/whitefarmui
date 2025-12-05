@@ -88,7 +88,7 @@ export default function Contact() {
                   onChange={(e) => setName(e.target.value)}
                   type="text"
                   placeholder="Name"
-                  className="p-2 bg-[#686262] outline-none text-white w-full"
+                  className="p-2 bg-[#c4c4c4] outline-none text-white w-full"
                 />
                 {errors.name && (
                   <div className="text-sm text-rose-400 mt-1">
@@ -104,7 +104,7 @@ export default function Contact() {
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   placeholder="email@gmail.com"
-                  className="p-2 bg-[#686262] outline-none text-white w-full"
+                  className="p-2 bg-[#c4c4c4] outline-none text-white w-full"
                 />
                 {errors.email && (
                   <div className="text-sm text-rose-400 mt-1">
@@ -120,7 +120,7 @@ export default function Contact() {
                   onChange={(e) => setPhone(e.target.value)}
                   type="tel"
                   placeholder="+2375644902"
-                  className="p-2 bg-[#686262] outline-none text-white w-full"
+                  className="p-2 bg-[#c4c4c4] outline-none text-white w-full"
                 />
                 {errors.phone && (
                   <div className="text-sm text-rose-400 mt-1">
@@ -136,7 +136,7 @@ export default function Contact() {
                   onChange={(e) => setSubject(e.target.value)}
                   type="text"
                   placeholder="subject"
-                  className="p-2 bg-[#686262] outline-none text-white w-full"
+                  className="p-2 bg-[#c4c4c4] outline-none text-white w-full"
                 />
                 {errors.subject && (
                   <div className="text-sm text-rose-400 mt-1">
@@ -151,7 +151,7 @@ export default function Contact() {
                 onChange={(e) => setUrl(e.target.value)}
                 type="url"
                 placeholder="https://anylink.com"
-                className="p-2 col-span-2 bg-[#686262] outline-none text-white w-full"
+                className="p-2 col-span-2 bg-[#c4c4c4] outline-none text-white w-full"
               />
             </div>
 
@@ -160,14 +160,14 @@ export default function Contact() {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Content here"
-              className="p-2 bg-[#686262] outline-none text-white min-h-[200px] w-full"
+              className="p-2 bg-[#c4c4c4] outline-none text-white min-h-[200px] w-full"
             />
 
             <div className="flex gap-4 w-full">
               <button
                 disabled={submitting}
                 type="submit"
-                className="px-10 py-2 w-full bg-[#0F6935]"
+                className="px-10 py-2 w-full bg-[#0F6935] text-white"
               >
                 {submitting ? "Opening mail client..." : "Submit"}
               </button>

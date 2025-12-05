@@ -14,8 +14,8 @@ export default function History({ history }: TeamProps) {
       <div className="flex flex-col max-w-7xl mx-auto gap-8 p-8">
         <header className="flex justify-between items-end">
           <div className="flex flex-col gap-2 justify-start max-w-xl">
-            <h4 className="border-b w-[150px] p-1">Histoir</h4>
-            <h2 className=" uppercase font-bold">Notre Histoir</h2>
+            <h4 className="border-b w-[150px] p-1">Histoire</h4>
+            <h2 className=" uppercase font-bold">Notre Histoire</h2>
           </div>
           <div className="flex gap-2">
             <span className="border p-2 h-fit">

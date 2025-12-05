@@ -19,6 +19,7 @@ export default function NavBar() {
     { href: "/blog", label: "Blog" },
     { href: "/shop", label: "Boutique" },
     { href: "/job", label: "Job" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (

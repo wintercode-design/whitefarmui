@@ -11,7 +11,7 @@ export default function Story() {
       <div className="flex flex-col max-w-7xl mx-auto gap-8 p-8 bg-[#0F6935] text-white">
         <header className="flex justify-between items-end">
           <div className="flex flex-col gap-2 justify-start max-w-xl">
-            <h4 className="border-b w-[200px]">Qui Nous Somme</h4>
+            <h4 className="border-b w-[200px]">Qui Nous Sommes</h4>
             <h3 className=" uppercase font-bold">
               un petit resumer de gic ubuntu
             </h3>
