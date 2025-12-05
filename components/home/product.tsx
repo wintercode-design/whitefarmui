@@ -71,7 +71,7 @@ export default function Product() {
                         {prod.price}XAF/Kg
                       </span>
                       <span className="flex w-full gap-8 h-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]">
-                        <p>Kg</p>
+                        <p>{prod.unit}</p>
                         <input
                           type="number"
                           value={prod.id === current ? kg : 1}
