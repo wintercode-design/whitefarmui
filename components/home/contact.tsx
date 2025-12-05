@@ -76,7 +76,7 @@ export default function Contact() {
           <header className="flex justify-between items-end">
             <div className="flex flex-col gap-2 justify-start max-w-xl">
               <h4 className="border-b w-[150px] p-1">Contact</h4>
-              <h2 className=" uppercase font-bold">CONTACTER NOUS</h2>
+              <h2 className=" uppercase font-bold">Contactez-nous</h2>
             </div>
           </header>
           <div className="flex flex-col gap-4">
@@ -200,8 +200,11 @@ export default function Contact() {
           <div className="grid gap-4">
             <div className="flex gap-2">
               <Phone />
-              <a href="tel:+237657071178" className="text-lg font-light">
-                +237657071178
+              <a href="tel:+237696636639" className="text-lg font-light">
+                +237696636639
+              </a>
+              <a href="tel:+237679683512" className="text-lg font-light">
+                +237679683512
               </a>
             </div>
             <div className="flex gap-2">

@@ -54,7 +54,7 @@ export default function FooterBar() {
         <div className="flex flex-col gap-2">
           <AtSign />
           <div className="flex flex-col">
-            <p>Contacter Nous</p>
+            <p>Contactez-nous</p>
             <p>+237696636639</p>
             <p>679683512</p>
             <strong>Cameroon</strong>

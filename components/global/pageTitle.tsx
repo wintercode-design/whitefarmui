@@ -21,7 +21,7 @@ export default function PageTitle(data: Props) {
         <div className="flex flex-col gap-2 border-r border-white justify-end p-8 text-white w-full md:w-[185px]">
           <AtSign />
           <div className="flex flex-col">
-            <p>Contacter Nous</p>
+            <p>Contactez-nous</p>
             <p>+237696636639</p>
             <p>679683512</p>
             <strong>Cameroon</strong>

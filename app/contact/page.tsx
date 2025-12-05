@@ -8,7 +8,7 @@ export default function Page() {
       <PageTitle
         img="/contact/contact.jpeg"
         title="Contact"
-        subs="Contacter nous pour plus d'information et commande"
+        subs="Contactez-nous pour plus d'information et commande"
       />
       <Contact />
     </main>
