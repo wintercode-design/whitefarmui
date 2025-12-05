@@ -47,10 +47,10 @@ export default function BlogDetailPage({ id }: Props) {
           <div className="flex flex-col max-w-7xl mx-auto gap-8 p-8">
             <header className="flex justify-between items-end">
               <div className="flex flex-col gap-2 justify-start max-w-xl">
-                <h4 className="border-b w-[150px]">Nos Produis</h4>
-                <h2 className=" uppercase font-bold">
-                  Nos produits et specialite pour vous
-                </h2>
+                <h4 className="border-b">
+                  {new Date(blog.data.created_at).toLocaleDateString("fr-FR")}
+                </h4>
+                <h2 className=" uppercase font-bold">{blog.data.title}</h2>
               </div>
               <div className="flex gap-2">
                 <span className="border p-2 h-fit">
