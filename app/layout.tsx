@@ -31,7 +31,7 @@ export default function RootLayout({
       <QueryProvider>
         <AppProvider>
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} antialiased bg-no-repeat! bg-cover! bg-[linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.8)),url('/bg.jpeg')]!`}
           >
             <NavBar />
             {children}
