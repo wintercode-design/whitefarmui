@@ -68,7 +68,7 @@ export default function Product() {
                     <p>{prod.description}</p>
                     <div className="flex gap-2">
                       <span className="flex gap-8 h-fit w-full py-2 text-[#0F6935] border-b border-b-[#0F6935]">
-                        {prod.price}XAF/Kg
+                        {prod.price}XAF/{prod.unit}
                       </span>
                       <span className="flex w-full gap-8 h-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]">
                         <p>{prod.unit}</p>
@@ -83,7 +83,9 @@ export default function Product() {
                     <a
                       href={`https://wa.me/237696636639?text=Bonjour, je suis intéressé par, ${encodeURIComponent(
                         prod.name
-                      )}, Je voudrais ${prod.id === current ? kg : 1} Kg`}
+                      )}, Je voudrais ${prod.id === current ? kg : 1} x ${
+                        prod.unit
+                      }`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex justify-between gap-2 h-fit py-2 px-8 text-white bg-[#0F6935]"
