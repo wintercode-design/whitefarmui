@@ -193,7 +193,7 @@ export default function Contact() {
 
         <div className="flex flex-col justify-center h-full p-8 md:p-12 md:gap-8 gap-4 w-full max-w-[500px]">
           <img
-            src="/worker1.jpeg"
+            src="/boutique/boutique.jpeg"
             className="w-full h-[400px] object-cover"
             alt="silver"
           />

@@ -72,7 +72,7 @@ export default function BlogDetailPage({ id }: Props) {
                 components={{
                   img: ({ src, alt }) => (
                     <img
-                      src={`http://localhost:1338${src}`} // prepend Strapi base URL if needed
+                      src={`http://gicubuntuapi.wintercodedesign.com${src}`} // prepend Strapi base URL if needed
                       alt={alt ?? ""}
                       className="rounded-lg shadow-md"
                     />

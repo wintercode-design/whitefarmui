@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <QueryProvider>
-        <AppProvider baseURL={process.env.NEXT_PUBLIC_API ?? ""}>
+        <AppProvider>
           <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >

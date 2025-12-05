@@ -4,14 +4,8 @@ import React, { createContext, useContext } from "react";
 
 const AppContext = createContext({ baseURL: "" });
 
-export const AppProvider = ({
-  baseURL,
-  children,
-}: {
-  baseURL: string;
-  children: React.ReactNode;
-}) => {
-  baseURL = baseURL ?? "https://gicubuntuapi.wintercodedesign.com";
+export const AppProvider = ({ children }: { children: React.ReactNode }) => {
+  const baseURL = "https://gicubuntuapi.wintercodedesign.com";
   return (
     <AppContext.Provider value={{ baseURL }}>{children}</AppContext.Provider>
   );
