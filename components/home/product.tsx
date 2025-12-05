@@ -8,7 +8,8 @@ import React, { useState } from "react";
 import { HeroSkeleton } from "../skeleton";
 
 export default function Product() {
-  const [quantities, setQuantities] = useState({});
+  const [kg, setKg] = useState<number>(1);
+  const [current, setcurrent] = useState<number>(-1);
   const { baseURL } = useAppContext();
   const productQuery = new ProductQuery();
   const products = useQuery({
@@ -47,11 +48,11 @@ export default function Product() {
           </header>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {products.data.map((prod) => {
-              const [kg, setKg] = useState<number>(1);
               return (
                 <div
                   key={prod.id}
                   className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-500 gap-4"
+                  onClick={() => setcurrent(prod.id)}
                 >
                   <img
                     src={
@@ -73,7 +74,7 @@ export default function Product() {
                         <p>Kg</p>
                         <input
                           type="number"
-                          value={kg}
+                          value={prod.id === current ? kg : 1}
                           onChange={(e) => setKg(Number(e.target.value))}
                           className="focus:outline-neutral-200 w-20"
                         />
@@ -82,7 +83,7 @@ export default function Product() {
                     <a
                       href={`https://wa.me/237696636639?text=Bonjour, je suis intéressé par, ${encodeURIComponent(
                         prod.name
-                      )}, Je voudrais ${kg} Kg`}
+                      )}, Je voudrais ${prod.id === current ? kg : 1} Kg`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex justify-between gap-2 h-fit py-2 px-8 text-white bg-[#0F6935]"
