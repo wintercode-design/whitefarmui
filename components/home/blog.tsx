@@ -45,39 +45,47 @@ export default function Blog() {
           </header>
           <div className="gap-8 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:col-span-2 lg:col-span-3">
-              {blogs.data.slice(0, 3).map((blog, i) => {
-                return (
-                  <div
-                    className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-300"
-                    key={blog.id}
-                  >
-                    <img
-                      src={
-                        blog.cover.url
-                          ? `${baseURL}${blog.cover.url}`
-                          : "/food1.jpeg"
-                      }
-                      alt=""
-                      className="w-full h-[250px] object-cover"
-                    />
-                    <div className="flex flex-col gap-2">
-                      <h4
-                        className="font-bold uppercase hover:text-[#0F6935] cursor-pointer"
-                        onClick={() => setSelected(i)}
-                      >
-                        {blog.title}
-                      </h4>
-                      <p className="line-clamp-3">{blog.summary}</p>
-                      <Link
-                        href={`/blog/${blog.id}`}
-                        className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
-                      >
-                        Commande <ArrowRight />
-                      </Link>
+              {/* sort acording to latest */}
+              {blogs.data
+                .sort(
+                  (a, b) =>
+                    new Date(b.created_at).getTime() -
+                    new Date(a.created_at).getTime()
+                )
+                .slice(0, 3)
+                .map((blog, i) => {
+                  return (
+                    <div
+                      className="flex flex-col hover:bg-[#0F6935]/20 hover:p-2 duration-300"
+                      key={blog.id}
+                    >
+                      <img
+                        src={
+                          blog.cover.url
+                            ? `${baseURL}${blog.cover.url}`
+                            : "/food1.jpeg"
+                        }
+                        alt=""
+                        className="w-full h-[250px] object-cover"
+                      />
+                      <div className="flex flex-col gap-2">
+                        <h4
+                          className="font-bold uppercase hover:text-[#0F6935] cursor-pointer"
+                          onClick={() => setSelected(i)}
+                        >
+                          {blog.title}
+                        </h4>
+                        <p className="line-clamp-3">{blog.summary}</p>
+                        <Link
+                          href={`/blog/${blog.id}`}
+                          className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
+                        >
+                          Commande <ArrowRight />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </div>
 
             <div

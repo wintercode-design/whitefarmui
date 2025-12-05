@@ -219,7 +219,7 @@ export default function Contact() {
             <div className="flex gap-2">
               <MapPin />
               <a href="" className="text-lg font-light">
-                Douala Cameroon
+                Dschang Cameroon
               </a>
             </div>
           </div>
