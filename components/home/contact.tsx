@@ -52,7 +52,7 @@ export default function Contact() {
     if (message.trim()) bodyParts.push(`\nMessage:\n${message}`);
 
     const body = encodeURIComponent(bodyParts.join("\n"));
-    const mailto = `mailto:contact@wintercodedesign.com?subject=${encodeURIComponent(
+    const mailto = `mailto:agokengmelanie@gmail.com ?subject=${encodeURIComponent(
       subject
     )}&body=${body}`;
 
@@ -207,10 +207,10 @@ export default function Contact() {
             <div className="flex gap-2">
               <AtSign />
               <a
-                href="mailto:contact@wintercodedesign.com"
+                href="mailto:agokengmelanie@gmail.com "
                 className="text-lg font-light"
               >
-                contact@wintercodedesign.com
+                agokengmelanie@gmail.com
               </a>
             </div>
             <div className="flex gap-2">
