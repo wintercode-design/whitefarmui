@@ -64,7 +64,7 @@ function HistoryNode(data: { swap: boolean; step: number; history: HistoryT }) {
         <>
           <div className="flex flex-col w-full lg:items-end italic">
             <h3>
-              {month} - {day} - {year}
+              {month + 1} - {day} - {year}
             </h3>
             <h5 className="uppercase">
               {new Date(history.date).toLocaleString("fr-FR", {
@@ -101,33 +101,28 @@ function HistoryNode(data: { swap: boolean; step: number; history: HistoryT }) {
           <div className="flex flex-col gap-4 w-full">
             <div className="flex flex-col-reverse lg:flex-row gap-4">
               <div className="flex flex-col lg:items-end">
-                <h4 className="font-bold uppercase">Demanou Jeam Roger</h4>
+                <h4 className="font-bold uppercase">{history.title}</h4>
                 <p className="flex gap-4 h-fit w-fit p-1 text-[#0F6935]">
-                  RESPONSABLE MAIMA
+                  {history.story}
                 </p>
-                <p className="lg:text-right">
-                  Les champignons frais sont issus de la récolte immédiate au us
-                  de la au sus de la Site issus de la récolte immédiate au Site
-                </p>
+                <p className="lg:text-right">{history.story}</p>
               </div>
               <img
-                src="/food1.jpeg"
+                src={
+                  history.cover.url
+                    ? `${baseURL}${history.cover.url}`
+                    : "/food1.jpeg"
+                }
                 alt=""
                 className="w-full h-[150px] object-cover"
               />
             </div>
-            <p className="lg:text-right">
-              Les champignons frais sont issus de la récolte immédiate au
-              SiteLes champignons frais sont issus de la au sus de la récolte i
-              SiteLes champignons frais sont récolte immédiate au Smpignon issus
-              de la récolte immédiate au iteLes cha SiteLes champignons frais
-              sont issus de la récolte immédiate au Site
-            </p>
+            <p className="lg:text-right">{history.subtitle}</p>
           </div>
           <div>{data.step}</div>
           <div className="flex flex-col w-full italic">
             <h3>
-              {month} - {day} - {year}
+              {month + 1} - {day} - {year}
             </h3>
             <h5 className="uppercase">
               {new Date(history.date).toLocaleString("fr-FR", {
