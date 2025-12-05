@@ -4,10 +4,11 @@ import ProductQuery from "@/queries/product";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HeroSkeleton } from "../skeleton";
 
 export default function Product() {
+  const [quantities, setQuantities] = useState({});
   const { baseURL } = useAppContext();
   const productQuery = new ProductQuery();
   const products = useQuery({
@@ -46,6 +47,7 @@ export default function Product() {
           </header>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {products.data.map((prod) => {
+              const [kg, setKg] = useState<number>(1);
               return (
                 <div
                   key={prod.id}
@@ -68,15 +70,25 @@ export default function Product() {
                         {prod.price}XAF/Kg
                       </span>
                       <span className="flex w-full gap-8 h-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]">
-                        <p>Kg</p>12
+                        <p>Kg</p>
+                        <input
+                          type="number"
+                          value={kg}
+                          onChange={(e) => setKg(Number(e.target.value))}
+                          className="focus:outline-neutral-200 w-20"
+                        />
                       </span>
                     </div>
-                    <Link
-                      href={`/shop/${prod.id}`}
+                    <a
+                      href={`https://wa.me/237696636639?text=Bonjour, je suis intéressé par, ${encodeURIComponent(
+                        prod.name
+                      )}, Je voudrais ${kg} Kg`}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex justify-between gap-2 h-fit py-2 px-8 text-white bg-[#0F6935]"
                     >
-                      Commande <ArrowRight />
-                    </Link>
+                      Commander <ArrowRight />
+                    </a>
                   </div>
                 </div>
               );

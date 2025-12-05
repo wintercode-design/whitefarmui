@@ -10,7 +10,12 @@ export const AppProvider = ({
 }: {
   baseURL: string;
   children: React.ReactNode;
-}) => <AppContext.Provider value={{ baseURL }}>{children}</AppContext.Provider>;
+}) => {
+  baseURL = baseURL ?? "https://gicubuntuapi.wintercodedesign.com";
+  return (
+    <AppContext.Provider value={{ baseURL }}>{children}</AppContext.Provider>
+  );
+};
 
 export const useAppContext = () => {
   const url = useContext(AppContext);
