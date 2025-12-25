@@ -12,7 +12,7 @@ class InfoQuery {
   };
   getOne = async (id: number): Promise<Info> => {
     const res: ResApi<Info> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

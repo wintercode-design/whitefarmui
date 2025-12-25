@@ -13,7 +13,7 @@ class JobQuery {
   };
   getOne = async (id: number): Promise<Job> => {
     const res: ResApi<Job> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

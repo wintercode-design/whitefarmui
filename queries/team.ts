@@ -12,7 +12,7 @@ class TeamQuery {
   };
   getOne = async (id: number): Promise<Team> => {
     const res: ResApi<Team> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

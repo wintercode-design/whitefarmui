@@ -12,7 +12,7 @@ class ProductQuery {
   };
   getOne = async (id: number): Promise<Product> => {
     const res: ResApi<Product> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

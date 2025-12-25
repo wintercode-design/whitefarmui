@@ -12,7 +12,7 @@ class BlogQuery {
   };
   getOne = async (id: number): Promise<Blog> => {
     const res: ResApi<Blog> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

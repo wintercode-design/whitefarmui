@@ -12,7 +12,7 @@ class HistoryQuery {
   };
   getOne = async (id: number): Promise<History> => {
     const res: ResApi<History> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };

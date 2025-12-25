@@ -12,7 +12,7 @@ class ClientQuery {
   };
   getOne = async (id: number): Promise<Client> => {
     const res: ResApi<Client> = await api
-      .get(`${this.route}?populate=*/${id}`)
+      .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);
     return res.data;
   };
