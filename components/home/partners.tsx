@@ -45,7 +45,7 @@ export default function Client() {
               console.log(client);
               return (
                 <img
-                  src={`${baseURL}${client.logo.url}`}
+                  src={`${baseURL}${client.logo?.url}`}
                   alt={client.name}
                   className="rounded-full flex justify-center items-center bg-gray-400 w-24 h-24"
                   key={client.id}

@@ -3,8 +3,10 @@ import { useAppContext } from "@/providers/appContext";
 import ClientQuery from "@/queries/clients";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { HeroSkeleton } from "../skeleton";
+import BlockRendererClient from "../global/BlockRendererClient";
+import { type BlocksContent } from "@strapi/blocks-react-renderer";
 
 export default function Client() {
   const [selected, setSelected] = useState(0);
@@ -73,7 +75,11 @@ export default function Client() {
                   </p>
                 </div>
               </div>
-              <p>{clients.data.at(selected)?.comment}</p>
+              <BlockRendererClient
+                content={
+                  clients.data.at(selected)?.comment as unknown as BlocksContent
+                }
+              />
             </div>
             <div className="flex flex-col gap-4">
               {clients.data.map((client, i) => {
@@ -101,7 +107,9 @@ export default function Client() {
                       <p className="flex gap-8 h-fit w-fit text-[#0F6935]">
                         {client.position}
                       </p>
-                      <p className="line-clamp-2">{client.comment}</p>
+                      <BlockRendererClient
+                        content={client.comment as unknown as BlocksContent}
+                      />
                     </div>
                   </div>
                 );

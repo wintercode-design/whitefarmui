@@ -55,7 +55,7 @@ export default function Product() {
                 >
                   <img
                     src={
-                      prod.cover.url
+                      prod.cover?.url
                         ? `${baseURL}${prod.cover.url}`
                         : "/food1.jpeg"
                     }

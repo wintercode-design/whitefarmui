@@ -1,14 +1,13 @@
 "use client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import React from "react";
 import { useAppContext } from "@/providers/appContext";
 import BlogQuery from "@/queries/blog";
 import { useQuery } from "@tanstack/react-query";
 import { ContentSkeleton } from "../skeleton";
 import Blog from "../home/blog";
 import PageTitle from "../global/pageTitle";
+import BlockRendererClient from "../global/BlockRendererClient";
+import { type BlocksContent } from "@strapi/blocks-react-renderer";
 
 type Props = {
   id: number;
@@ -66,30 +65,9 @@ export default function BlogDetailPage({ id }: Props) {
                 alt={blog.data.Title ?? "cover"}
                 className="h-[500px] object-cover"
               />
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  img: ({ src, alt }) => (
-                    <img
-                      src={`http://gicubuntuapi.wintercodedesign.com${src}`} // prepend Strapi base URL if needed
-                      alt={alt ?? ""}
-                      className="rounded-lg shadow-md"
-                    />
-                  ),
-                  a: ({ href, children }) => (
-                    <a
-                      href={href}
-                      className="text-sky-500 underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {children}
-                    </a>
-                  ),
-                }}
-              >
-                {blog.data.content}
-              </ReactMarkdown>
+              <BlockRendererClient
+                content={blog.data.content as unknown as BlocksContent}
+              />
             </div>
           </div>
           <Blog />

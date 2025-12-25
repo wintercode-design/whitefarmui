@@ -81,7 +81,7 @@ function HistoryNode(data: { swap: boolean; step: number; history: HistoryT }) {
             <div className="flex flex-col lg:flex-row gap-4">
               <img
                 src={
-                  history.cover.url
+                  history.cover?.url
                     ? `${baseURL}${history.cover.url}`
                     : "/food1.jpeg"
                 }
@@ -113,7 +113,7 @@ function HistoryNode(data: { swap: boolean; step: number; history: HistoryT }) {
               </div>
               <img
                 src={
-                  history.cover.url
+                  history.cover?.url
                     ? `${baseURL}${history.cover.url}`
                     : "/food1.jpeg"
                 }
