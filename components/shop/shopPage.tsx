@@ -42,7 +42,7 @@ export default function ShopPage({ products }: Props) {
               >
                 <img
                   src={
-                    prod.cover.url
+                    prod.cover?.url
                       ? `${baseURL}${prod.cover.url}`
                       : "/food1.jpeg"
                   }

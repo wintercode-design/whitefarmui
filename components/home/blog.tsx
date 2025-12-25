@@ -76,7 +76,7 @@ export default function Blog() {
                         </h4>
                         <p className="line-clamp-3">{blog.summary}</p>
                         <Link
-                          href={`/blog/${blog.id}`}
+                          href={`/blog/${blog.documentId}`}
                           className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
                         >
                           Commande <ArrowRight />

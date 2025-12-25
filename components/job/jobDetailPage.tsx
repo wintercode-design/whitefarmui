@@ -8,9 +8,11 @@ import remarkGfm from "remark-gfm";
 import { ContentSkeleton } from "../skeleton";
 import PageTitle from "../global/pageTitle";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import BlockRendererClient from "../global/BlockRendererClient";
+import { type BlocksContent } from "@strapi/blocks-react-renderer";
 
 type Props = {
-  id: number;
+  id: string;
 };
 
 export default function JobDetailPage({ id }: Props) {
@@ -37,7 +39,7 @@ export default function JobDetailPage({ id }: Props) {
     return (
       <>
         <PageTitle
-          img={`${baseURL}${job.data.cover.url}`}
+          img={`${baseURL}${job.data.cover?.url}`}
           title={job.data.title}
           subs={job.data.summery.substring(0, 100)}
         />
@@ -61,34 +63,13 @@ export default function JobDetailPage({ id }: Props) {
             </header>
             <div className="flex flex-col gap-3 p-8 xl:p-20 bg-white text-black h-fit w-full max-w-7xl">
               <img
-                src={`${baseURL}${job.data.cover.url}`}
+                src={`${baseURL}${job.data.cover?.url}`}
                 alt={job.data.title ?? "cover"}
                 className="h-[500px] object-cover"
               />
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                components={{
-                  img: ({ src, alt }) => (
-                    <img
-                      src={`http://gicubuntuapi.wintercodedesign.com${src}`} // prepend Strapi base URL if needed
-                      alt={alt ?? ""}
-                      className="rounded-lg shadow-md"
-                    />
-                  ),
-                  a: ({ href, children }) => (
-                    <a
-                      href={href}
-                      className="text-sky-500 underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {children}
-                    </a>
-                  ),
-                }}
-              >
-                {job.data.description}
-              </ReactMarkdown>
+              <BlockRendererClient
+                content={job.data.description as unknown as BlocksContent}
+              />
             </div>
           </div>
         </section>

@@ -11,7 +11,7 @@ class JobQuery {
       .then((res) => res.data);
     return res.data;
   };
-  getOne = async (id: number): Promise<Job> => {
+  getOne = async (id: string): Promise<Job> => {
     const res: ResApi<Job> = await api
       .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);

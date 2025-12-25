@@ -1,5 +1,6 @@
 export type Job = {
   id: number;
+  documentId: string;
   title: string;
   summery: string;
   description: string;
@@ -37,6 +38,7 @@ export type Job = {
 
 export type Client = {
   id: number;
+  documentId: string;
   name: string;
   position: string;
   date: Date;
@@ -106,6 +108,7 @@ export interface Medium {
 
 export type Team = {
   id: number;
+  documentId: string;
   name: string;
   position: string;
   contact: string;
@@ -139,6 +142,7 @@ export type Team = {
 
 export type Blog = {
   id: number;
+  documentId: string;
   Title: null;
   summary: string;
   Content: null;
@@ -192,6 +196,7 @@ export type Blog = {
 };
 
 export type History = {
+  documentId: string;
   id: number;
   title: string;
   subtitle: string;
@@ -226,6 +231,7 @@ export type History = {
 };
 
 export type Product = {
+  documentId: string;
   id: number;
   name: string;
   description: string;
@@ -300,6 +306,7 @@ export interface Small {
 }
 
 export type Info = {
+  documentId: string;
   id: number;
   title: string;
   content: string;

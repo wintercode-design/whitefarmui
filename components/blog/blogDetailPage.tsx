@@ -10,7 +10,7 @@ import BlockRendererClient from "../global/BlockRendererClient";
 import { type BlocksContent } from "@strapi/blocks-react-renderer";
 
 type Props = {
-  id: number;
+  id: string;
 };
 
 export default function BlogDetailPage({ id }: Props) {
@@ -37,7 +37,7 @@ export default function BlogDetailPage({ id }: Props) {
     return (
       <>
         <PageTitle
-          img={`${baseURL}${blog.data.cover.url}`}
+          img={`${baseURL}${blog.data.cover?.url}`}
           title={blog.data.title}
           subs={blog.data.summary.substring(0, 100)}
         />
@@ -61,7 +61,7 @@ export default function BlogDetailPage({ id }: Props) {
             </header>
             <div className="flex flex-col gap-3 p-8 xl:p-20 bg-white text-black h-fit w-full max-w-7xl">
               <img
-                src={`${baseURL}${blog.data.cover.url}`}
+                src={`${baseURL}${blog.data.cover?.url}`}
                 alt={blog.data.Title ?? "cover"}
                 className="h-[500px] object-cover"
               />

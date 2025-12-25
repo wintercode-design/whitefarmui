@@ -10,7 +10,7 @@ class BlogQuery {
       .then((res) => res.data);
     return res.data;
   };
-  getOne = async (id: number): Promise<Blog> => {
+  getOne = async (id: string): Promise<Blog> => {
     const res: ResApi<Blog> = await api
       .get(`${this.route}/${id}?populate=*`)
       .then((res) => res.data);

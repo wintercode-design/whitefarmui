@@ -52,7 +52,7 @@ export default function JobPage({ jobs }: Props) {
                   </strong>
                   <p className="line-clamp-3">{job.summery}</p>
                   <Link
-                    href={`/job/${job.id}`}
+                    href={`/job/${job.documentId}`}
                     className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
                   >
                     Postuler <ArrowRight />

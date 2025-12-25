@@ -39,7 +39,7 @@ export default function BlogPage({ blogs }: Props) {
               >
                 <img
                   src={
-                    blog.cover.url
+                    blog.cover?.url
                       ? `${baseURL}${blog.cover.url}`
                       : "/food1.jpeg"
                   }
@@ -50,7 +50,7 @@ export default function BlogPage({ blogs }: Props) {
                   <h4 className="font-bold uppercase">{blog.title}</h4>
                   <p className="line-clamp-4">{blog.summary}</p>
                   <Link
-                    href={`/blog/${blog.id}`}
+                    href={`/blog/${blog.documentId}`}
                     className="flex gap-8 h-fit w-fit py-2 text-[#0F6935] border-b border-b-[#0F6935]"
                   >
                     Voir Plus <ArrowRight />
