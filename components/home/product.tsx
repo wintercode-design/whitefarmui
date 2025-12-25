@@ -11,10 +11,9 @@ export default function Product() {
   const [kg, setKg] = useState<number>(1);
   const [current, setcurrent] = useState<number>(-1);
   const { baseURL } = useAppContext();
-  const productQuery = new ProductQuery();
   const products = useQuery({
     queryKey: ["getProducts"],
-    queryFn: () => productQuery.getAll(),
+    queryFn: () => ProductQuery.getAll(),
   });
 
   console.log(products.data);

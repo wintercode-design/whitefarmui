@@ -1,11 +1,22 @@
 import api from "@/providers/axios";
-import { Product } from "@/types/types";
+import { Product, ResApi } from "@/types/types";
 import { AxiosInstance } from "axios";
 
-export default class ProductQuery {
+class ProductQuery {
   route = "/products";
-  getAll = async (): Promise<Product[]> =>
-    api.get(`${this.route}`).then((res) => res.data);
-  getOne = async (id: number): Promise<Product> =>
-    api.get(`${this.route}/${id}`).then((res) => res.data);
+  getAll = async (): Promise<Product[]> => {
+    const res: ResApi<Product[]> = await api
+      .get(`${this.route}?populate=*`)
+      .then((res) => res.data);
+    return res.data;
+  };
+  getOne = async (id: number): Promise<Product> => {
+    const res: ResApi<Product> = await api
+      .get(`${this.route}?populate=*/${id}`)
+      .then((res) => res.data);
+    return res.data;
+  };
 }
+
+const productQuery = new ProductQuery();
+export default productQuery;

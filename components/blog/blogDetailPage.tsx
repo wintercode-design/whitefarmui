@@ -16,15 +16,14 @@ type Props = {
 
 export default function BlogDetailPage({ id }: Props) {
   const { baseURL } = useAppContext();
-  const blogQuery = new BlogQuery();
   const blog = useQuery({
     queryKey: ["getBlog"],
-    queryFn: () => blogQuery.getOne(id),
+    queryFn: () => BlogQuery.getOne(id),
   });
 
   const blogs = useQuery({
     queryKey: ["getBlogs"],
-    queryFn: () => blogQuery.getAll(),
+    queryFn: () => BlogQuery.getAll(),
   });
 
   if (blog.isLoading && blogs.isLoading) {

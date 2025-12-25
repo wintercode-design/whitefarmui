@@ -66,7 +66,7 @@ export type Client = {
     provider_metadata: null;
     created_at: Date;
     updated_at: Date;
-  }[];
+  };
   logo: {
     id: number;
     name: string;
@@ -328,5 +328,23 @@ export type Info = {
     provider_metadata: null;
     created_at: Date;
     updated_at: Date;
+  };
+};
+
+export type ResApi<T> = {
+  data: T;
+  error?: {
+    status: number;
+    name: string;
+    message: string;
+    details: object;
+  };
+  meta?: {
+    pagination?: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
   };
 };

@@ -12,15 +12,13 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function Page() {
   const { baseURL } = useAppContext();
-  const teamQuery = new TeamQuery();
-  const historyQuery = new HistoryQuery();
   const teams = useQuery({
     queryKey: ["getTeams"],
-    queryFn: () => teamQuery.getAll(),
+    queryFn: () => TeamQuery.getAll(),
   });
   const history = useQuery({
     queryKey: ["getHistory"],
-    queryFn: () => historyQuery.getAll(),
+    queryFn: () => HistoryQuery.getAll(),
   });
 
   console.log(teams.data);

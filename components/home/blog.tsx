@@ -12,10 +12,9 @@ export default function Blog() {
   const [selected, setSelected] = useState(0);
 
   const { baseURL } = useAppContext();
-  const blogQuery = new BlogQuery();
   const blogs = useQuery({
     queryKey: ["getBlogs"],
-    queryFn: async () => blogQuery.getAll(),
+    queryFn: async () => BlogQuery.getAll(),
   });
 
   console.log(blogs.data);
@@ -61,7 +60,7 @@ export default function Blog() {
                     >
                       <img
                         src={
-                          blog.cover.url
+                          blog.cover?.url
                             ? `${baseURL}${blog.cover.url}`
                             : "/food1.jpeg"
                         }
@@ -92,7 +91,7 @@ export default function Blog() {
               className="flex flex-col justify-end md:col-span-2 p-4 text-white"
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${baseURL}${
-                  blogs.data.at(selected)?.cover.url
+                  blogs.data.at(selected)?.cover?.url
                 })`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",

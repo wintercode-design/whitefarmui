@@ -1,12 +1,23 @@
 import api from "@/providers/axios";
-import { Job } from "@/types/types";
+import { Job, ResApi } from "@/types/types";
 import { AxiosInstance } from "axios";
 
-export default class JobQuery {
+class JobQuery {
   route = "/jobs";
 
-  getAll = async (): Promise<Job[]> =>
-    api.get(`${this.route}`).then((res) => res.data);
-  getOne = async (id: number): Promise<Job> =>
-    api.get(`${this.route}/${id}`).then((res) => res.data);
+  getAll = async (): Promise<Job[]> => {
+    const res: ResApi<Job[]> = await api
+      .get(`${this.route}?populate=*`)
+      .then((res) => res.data);
+    return res.data;
+  };
+  getOne = async (id: number): Promise<Job> => {
+    const res: ResApi<Job> = await api
+      .get(`${this.route}?populate=*/${id}`)
+      .then((res) => res.data);
+    return res.data;
+  };
 }
+
+const jobQuery = new JobQuery();
+export default jobQuery;

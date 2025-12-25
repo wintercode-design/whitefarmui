@@ -9,10 +9,9 @@ import { HeroSkeleton } from "../skeleton";
 export default function Client() {
   const [selected, setSelected] = useState(0);
   const { baseURL } = useAppContext();
-  const clientQuery = new ClientQuery();
   const clients = useQuery({
     queryKey: ["getClients"],
-    queryFn: () => clientQuery.getAll(),
+    queryFn: () => ClientQuery.getAll(),
   });
 
   console.log(clients.data);
@@ -57,8 +56,8 @@ export default function Client() {
               <div className="flex flex-col md:flex-row gap-4">
                 <img
                   src={
-                    clients.data.at(selected)?.cover[0].url
-                      ? `${baseURL}${clients.data.at(selected)?.cover[0].url}`
+                    clients.data.at(selected)?.cover?.url
+                      ? `${baseURL}${clients.data.at(selected)?.cover?.url}`
                       : "/food1.jpeg"
                   }
                   alt=""
@@ -85,8 +84,8 @@ export default function Client() {
                   >
                     <img
                       src={
-                        client.cover[0].url
-                          ? `${baseURL}${client.cover[0].url}`
+                        client.cover?.url
+                          ? `${baseURL}${client.cover.url}`
                           : "/food1.jpeg"
                       }
                       alt=""

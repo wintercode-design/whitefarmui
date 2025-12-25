@@ -1,11 +1,21 @@
 import api from "@/providers/axios";
-import { History } from "@/types/types";
+import { History, ResApi } from "@/types/types";
 import { AxiosInstance } from "axios";
 
-export default class HistoryQuery {
+class HistoryQuery {
   route = "/histories";
-  getAll = async (): Promise<History[]> =>
-    api.get(`${this.route}`).then((res) => res.data);
-  getOne = async (id: number): Promise<History> =>
-    api.get(`${this.route}/${id}`).then((res) => res.data);
+  getAll = async (): Promise<History[]> => {
+    const res: ResApi<History[]> = await api
+      .get(`${this.route}?populate=*`)
+      .then((res) => res.data);
+    return res.data;
+  };
+  getOne = async (id: number): Promise<History> => {
+    const res: ResApi<History> = await api
+      .get(`${this.route}?populate=*/${id}`)
+      .then((res) => res.data);
+    return res.data;
+  };
 }
+const historyQuery = new HistoryQuery();
+export default historyQuery;

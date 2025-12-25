@@ -6,10 +6,9 @@ import { HeroSkeleton } from "../skeleton";
 
 const Info = () => {
   const { baseURL } = useAppContext();
-  const infoQuery = new InfoQuery();
   const infos = useQuery({
     queryKey: ["getInfos"],
-    queryFn: () => infoQuery.getAll(),
+    queryFn: () => InfoQuery.getAll(),
   });
 
   console.log(infos.data);
@@ -31,7 +30,9 @@ const Info = () => {
               key={info.id}
             >
               <img
-                src={`${baseURL}${info.cover.url}`}
+                src={`${baseURL}${
+                  info.cover?.url ? info.cover?.url : "/food1.jpeg"
+                }`}
                 alt=""
                 className="max-w-24 w-full h-24 rounded-full object-cover"
               />

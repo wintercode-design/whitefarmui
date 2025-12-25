@@ -15,15 +15,14 @@ type Props = {
 
 export default function JobDetailPage({ id }: Props) {
   const { baseURL } = useAppContext();
-  const jobQuery = new JobQuery();
   const job = useQuery({
     queryKey: ["getJob"],
-    queryFn: () => jobQuery.getOne(id),
+    queryFn: () => JobQuery.getOne(id),
   });
 
   const jobs = useQuery({
     queryKey: ["getJobs"],
-    queryFn: () => jobQuery.getAll(),
+    queryFn: () => JobQuery.getAll(),
   });
 
   if (job.isLoading && jobs.isLoading) {

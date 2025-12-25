@@ -9,10 +9,9 @@ import React from "react";
 
 export default function Page() {
   const { baseURL } = useAppContext();
-  const productQuery = new ProductQuery();
   const products = useQuery({
     queryKey: ["getProducts"],
-    queryFn: () => productQuery.getAll(),
+    queryFn: () => ProductQuery.getAll(),
   });
 
   console.log(products.data);
