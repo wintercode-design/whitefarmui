@@ -3,7 +3,7 @@ import { Client } from "@/types/types";
 import { AxiosInstance } from "axios";
 
 export default class ClientQuery {
-  route = "/c-lients";
+  route = "/clients";
   getAll = async (): Promise<Client[]> =>
     api.get(`${this.route}`).then((res) => res.data);
   getOne = async (id: number): Promise<Client> =>
